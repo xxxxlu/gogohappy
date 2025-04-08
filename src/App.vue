@@ -1,70 +1,85 @@
 <template>
-  <div id="app">
-    <header>
+  <div id="app" class="cyberpunk-theme">
+    <div class="neon-grid-overlay"></div>
+    <header class="cyber-header">
       <div class="header-top">
-        <div class="container">
+        <div class="container cyber-container">
           <div class="logo">
-            <router-link to="/">
-              <img src="" alt="abcshop" />
+            <router-link to="/" class="cyber-logo">
+              <span class="logo-text">GOGO<span class="highlight">HAPPY</span></span>
             </router-link>
           </div>
           <div class="header-actions">
             <div class="account">
-              <span v-if="username">Welcome, {{ username }}!</span>
-              <router-link v-else to="/account">My Account</router-link>
+              <div class="cyber-btn-small" v-if="username">
+                <router-link to="/account" class="glitch-text">{{ username }}</router-link>
+              </div>
+              <router-link v-else to="/account" class="cyber-btn-small">
+                <span class="glitch-text">CONNECT</span>
+              </router-link>
             </div>
             <div class="cart">
-              <router-link to="/cart">
-                <span class="cart-icon">
-                  <img src="https://ext.same-assets.com/3844190759/4083373414.png" alt="Cart" />
-                  <span class="cart-count">{{ cartCount }}</span>
-                </span>
+              <router-link to="/cart" class="cart-icon-cyber">
+                <i class="cyber-icon">🛒</i>
+                <span class="cart-count">{{ cartCount }}</span>
               </router-link>
             </div>
           </div>
         </div>
       </div>
-      <nav class="main-nav">
+      <nav class="main-nav cyber-nav">
         <div class="container">
+          <div class="nav-glitch-line"></div>
           <ul class="nav-items">
             <li>
-              <router-link to="/contact">Contact Us</router-link>
+              <router-link to="/" class="nav-link">HOME</router-link>
+            </li>
+            <li>
+              <router-link to="/products" class="nav-link">PRODUCTS</router-link>
+            </li>
+            <li>
+              <router-link to="/contact" class="nav-link">CONTACT</router-link>
             </li>
           </ul>
         </div>
       </nav>
     </header>
 
-    <main>
+    <main class="cyber-main">
       <router-view />
     </main>
 
-    <footer>
+    <footer class="cyber-footer">
+      <div class="cyber-grid-line"></div>
       <div class="container">
         <div class="footer-columns">
-          <div class="footer-column">
-            <h3>CUSTOMER SERVICE</h3>
+          <div class="footer-column cyber-panel">
+            <h3 class="cyber-heading">NEURAL_LINK</h3>
             <ul>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="#" class="cyber-link">Contact Us</a></li>
+              <li><a href="#" class="cyber-link">Support Portal</a></li>
+              <li><a href="#" class="cyber-link">FAQ</a></li>
             </ul>
           </div>
-          <div class="footer-column">
-            <h3>email</h3>
+          <div class="footer-column cyber-panel">
+            <h3 class="cyber-heading">DATA_PORT</h3>
             <ul>
-              <li><a href="#">abcshop@zontec.club</a></li>
+              <li><a href="#" class="cyber-link">gogohappy@zontec.club</a></li>
+              <li><a href="#" class="cyber-link">info@cybershop.net</a></li>
             </ul>
           </div>
-          <div class="footer-column">
-            <h3>PAYMENT METHOD</h3>
+          <div class="footer-column cyber-panel">
+            <h3 class="cyber-heading">CREDIT_TRANSFER</h3>
             <div class="payment-icons">
-              <img src="./assets/easypaisa.png" alt="Payment easypaisa" />
-              <img src="./assets/Frame.png" alt="Payment Frame" />
+              <img src="./assets/easypaisa.png" alt="Payment easypaisa" class="cyber-payment" />
+              <img src="./assets/Frame.png" alt="Payment Frame" class="cyber-payment" />
             </div>
           </div>
         </div>
-        <div class="copyright">
+        <div class="copyright cyber-copyright">
+          <div class="scanner-line"></div>
           <p>
-            Copyright 2025 | Powered by Data Network Solutions (SMC-Private) Limited
+            Copyright <span class="cyber-year">2025</span> | Powered by Data Network Solutions (SMC-Private) Limited
           </p>
         </div>
       </div>
@@ -93,6 +108,24 @@ export default {
 </script>
 
 <style>
+/* Cyberpunk Theme Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --cyber-purple: #9333ea;
+  --cyber-purple-dark: #7e22ce;
+  --cyber-purple-light: #a855f7;
+  --cyber-pink: #ec4899;
+  --cyber-blue: #2dd4bf;
+  --cyber-yellow: #facc15;
+  --cyber-bg-dark: #09090b;
+  --cyber-bg-light: #18181b;
+  --cyber-text: #e2e8f0;
+  --cyber-grid: rgba(168, 85, 247, 0.2);
+  --cyber-border: #7e22ce;
+  --cyber-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -100,21 +133,24 @@ export default {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   line-height: 1.6;
-  color: #2d3436;
-  background-color: #ffffff;
+  color: var(--cyber-text);
+  background-color: var(--cyber-bg-dark);
+  overflow-x: hidden;
 }
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 24px;
+  position: relative;
+  z-index: 10;
 }
 
 a {
   text-decoration: none;
-  color: #2d3436;
+  color: var(--cyber-text);
   transition: all 0.3s ease;
 }
 
@@ -122,14 +158,75 @@ ul {
   list-style: none;
 }
 
+/* Cyberpunk Base Elements */
+.cyberpunk-theme {
+  position: relative;
+  background-color: var(--cyber-bg-dark);
+  color: var(--cyber-text);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.neon-grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(var(--cyber-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cyber-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.cyber-container {
+  position: relative;
+}
+
+/* Neon Elements & Effects */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+  color: var(--cyber-text);
+  text-shadow: 0 0 2px var(--cyber-purple), 0 0 10px var(--cyber-purple);
+}
+
+.cyber-btn-small {
+  position: relative;
+  padding: 8px 16px;
+  background: var(--cyber-bg-light);
+  color: var(--cyber-purple-light);
+  border: 1px solid var(--cyber-purple);
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 14px;
+  overflow: hidden;
+  transition: all 0.3s;
+  box-shadow: 0 0 5px var(--cyber-purple);
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+}
+
+.cyber-btn-small:hover {
+  background: var(--cyber-purple-dark);
+  color: white;
+  box-shadow: 0 0 10px var(--cyber-purple);
+}
+
 /* Header Styles */
-header {
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #edf2f7;
+.cyber-header {
+  background-color: rgba(9, 9, 11, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--cyber-purple);
+  position: relative;
+  z-index: 100;
 }
 
 .header-top {
-  padding: 20px 0;
+  padding: 15px 0;
 }
 
 .header-top .container {
@@ -139,8 +236,22 @@ header {
   align-items: center;
 }
 
-.logo img {
-  height: 45px;
+.cyber-logo {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  color: var(--cyber-text);
+  letter-spacing: 1px;
+  position: relative;
+  text-shadow: 0 0 10px var(--cyber-purple);
+}
+
+.logo-text {
+  position: relative;
+}
+
+.logo-text .highlight {
+  color: var(--cyber-purple-light);
 }
 
 .header-actions {
@@ -149,37 +260,25 @@ header {
   gap: 24px;
 }
 
-.account a {
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 8px;
-  background-color: #f1f5f9;
-  color: #475569;
-}
-
-.account a:hover {
-  background-color: #e2e8f0;
-  color: #1e293b;
-}
-
-.cart-icon {
+.cart-icon-cyber {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.cart-icon img {
-  height: 24px;
-  filter: brightness(0.2);
+.cyber-icon {
+  font-size: 24px;
+  color: var(--cyber-purple-light);
+  text-shadow: 0 0 10px var(--cyber-purple);
 }
 
 .cart-count {
   position: absolute;
-  top: -6px;
-  right: -6px;
-  background-color: #3b82f6;
+  top: -8px;
+  right: -8px;
+  background-color: var(--cyber-pink);
   color: white;
-  border-radius: 20px;
+  border-radius: 4px;
   min-width: 20px;
   height: 20px;
   display: flex;
@@ -188,58 +287,90 @@ header {
   font-size: 12px;
   font-weight: 600;
   padding: 0 6px;
+  box-shadow: 0 0 8px var(--cyber-pink);
 }
 
 /* Navigation Styles */
-.main-nav {
-  background-color: #ffffff;
-  border-bottom: 1px solid #edf2f7;
-  padding: 12px 0;
+.cyber-nav {
+  background-color: rgba(24, 24, 27, 0.8);
+  padding: 10px 0;
+  position: relative;
+}
+
+.nav-glitch-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyber-purple), transparent);
+  z-index: 1;
 }
 
 .nav-items {
   display: flex;
   gap: 32px;
+  justify-content: center;
 }
 
-.nav-items a {
-  color: #64748b;
+.nav-link {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--cyber-text);
   font-weight: 500;
   position: relative;
-  padding: 6px 0;
+  padding: 10px 5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
-.nav-items a:hover {
-  color: #3b82f6;
+.nav-link:hover {
+  color: var(--cyber-purple-light);
+  text-shadow: 0 0 8px var(--cyber-purple);
 }
 
-.nav-items a::after {
+.nav-link::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: 0;
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #3b82f6;
+  background-color: var(--cyber-purple);
   transition: width 0.3s ease;
+  box-shadow: 0 0 10px var(--cyber-purple);
 }
 
-.nav-items a:hover::after {
+.nav-link:hover::after {
   width: 100%;
 }
 
 /* Main Content Styles */
-main {
+.cyber-main {
   min-height: 600px;
   padding: 40px 0;
-  background-color: #ffffff;
+  position: relative;
+  z-index: 10;
+  background-color: rgba(9, 9, 11, 0.5);
 }
 
 /* Footer Styles */
-footer {
-  background-color: #f8fafc;
-  color: #475569;
+.cyber-footer {
+  background-color: rgba(9, 9, 11, 0.9);
+  color: var(--cyber-text);
   padding: 60px 0 30px;
+  position: relative;
+  border-top: 1px solid var(--cyber-purple);
+}
+
+.cyber-grid-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyber-purple), transparent);
+  box-shadow: 0 0 20px var(--cyber-purple);
 }
 
 .footer-columns {
@@ -249,27 +380,70 @@ footer {
   margin-bottom: 40px;
 }
 
-.footer-column h3 {
-  font-size: 14px;
+.cyber-panel {
+  background-color: rgba(24, 24, 27, 0.5);
+  border: 1px solid var(--cyber-purple-dark);
+  border-radius: 4px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyber-purple), transparent);
+}
+
+.cyber-heading {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 20px;
-  color: #1e293b;
+  color: var(--cyber-purple-light);
+  position: relative;
+  display: inline-block;
+}
+
+.cyber-heading::after {
+  content: '_';
+  color: var(--cyber-purple);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 .footer-column ul li {
   margin-bottom: 12px;
 }
 
-.footer-column ul li a {
-  color: #64748b;
+.cyber-link {
+  color: var(--cyber-text);
   font-size: 15px;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  position: relative;
+  padding-left: 15px;
 }
 
-.footer-column ul li a:hover {
-  color: #3b82f6;
+.cyber-link:before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--cyber-purple);
+}
+
+.cyber-link:hover {
+  color: var(--cyber-purple-light);
+  text-shadow: 0 0 5px var(--cyber-purple);
+  transform: translateX(5px);
 }
 
 .payment-icons {
@@ -278,24 +452,54 @@ footer {
   align-items: center;
 }
 
-.payment-icons img {
+.cyber-payment {
   height: 36px;
   opacity: 0.8;
-  transition: opacity 0.2s ease;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 2px var(--cyber-purple));
 }
 
-.payment-icons img:hover {
+.cyber-payment:hover {
   opacity: 1;
+  filter: drop-shadow(0 0 8px var(--cyber-purple));
+  transform: scale(1.05);
 }
 
-.copyright {
+.cyber-copyright {
   text-align: center;
   padding-top: 30px;
-  border-top: 1px solid #e2e8f0;
-  color: #94a3b8;
+  border-top: 1px solid rgba(126, 34, 206, 0.3);
+  color: var(--cyber-text);
   font-size: 14px;
+  position: relative;
+  font-family: 'Rajdhani', sans-serif;
 }
 
+.cyber-year {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--cyber-purple-light);
+  font-weight: 900;
+}
+
+.scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--cyber-purple);
+  opacity: 0.7;
+  animation: scan 3s linear infinite;
+  box-shadow: 0 0 15px var(--cyber-purple);
+}
+
+@keyframes scan {
+  0% { transform: translateY(0); opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { transform: translateY(30px); opacity: 0.5; }
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   .header-top .container {
     grid-template-columns: 1fr;
@@ -308,7 +512,6 @@ footer {
   }
 
   .nav-items {
-    justify-content: center;
     flex-wrap: wrap;
     gap: 16px;
   }
@@ -326,6 +529,10 @@ footer {
   .payment-icons {
     flex-wrap: wrap;
     justify-content: center;
+  }
+  
+  .cyber-logo {
+    font-size: 20px;
   }
 }
 </style>
