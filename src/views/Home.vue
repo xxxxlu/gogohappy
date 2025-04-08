@@ -45,10 +45,11 @@
               <div class="featured-badge">WELCOME</div>
               <h3 class="featured-title">DIGITAL SHOPPING REDEFINED</h3>
               <p class="featured-desc">GOGOHAPPY is your premier cyberpunk e-commerce destination, offering cutting-edge products at revolutionary prices. Our digital marketplace connects you with exclusive tech gear, limited editions, and trending items delivered right to your doorstep.</p>
-              <router-link to="/about" class="cyber-btn featured-btn">
+              <button @click="showPulseEffect" class="cyber-btn featured-btn">
                 <span class="btn-text">DISCOVER MORE</span>
                 <span class="btn-glow"></span>
-              </router-link>
+                <span class="pulse-effect" :class="{ 'active': isPulsing }"></span>
+              </button>
             </div>
           </div>
           
@@ -165,13 +166,23 @@ export default {
       return this.products.slice(0, 8)
     }
   },
+  data() {
+    return {
+      isPulsing: false
+    }
+  },
   methods: {
     formatPrice(price) {
-      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      return (price / 100).toFixed(2);
     },
     handleImageError(e) {
-      // Fallback image if product image is not found
-      e.target.src = 'https://ext.same-assets.com/3844190759/814572404.jpeg'
+      e.target.src = 'https://via.placeholder.com/300x200?text=Image+Not+Found';
+    },
+    showPulseEffect() {
+      this.isPulsing = true;
+      setTimeout(() => {
+        this.isPulsing = false;
+      }, 1500);
     }
   }
 }
@@ -437,6 +448,35 @@ export default {
   font-size: 16px;
   margin-bottom: 20px;
   line-height: 1.5;
+}
+
+.pulse-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 4px;
+  opacity: 0;
+  transform: scale(1);
+  transition: all 0.5s ease;
+  background: radial-gradient(circle, var(--cyber-purple-light) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pulse-effect.active {
+  animation: pulse 1.5s ease-out;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
 }
 
 .cyber-featured-section::before {
