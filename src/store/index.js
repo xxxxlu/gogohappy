@@ -7,10 +7,7 @@ export default new Vuex.Store({
   state: {
     products: [],
     cart: [],
-    categories: [
-      { id: 1, name: 'Bedding', slug: 'Bedding' },
-      { id: 2, name: 'Bath', slug: 'Bath' }
-    ]
+    categories: []
   },
   getters: {
     cartTotal: state => {
