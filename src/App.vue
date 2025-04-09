@@ -64,7 +64,7 @@
           <div class="footer-column cyber-panel">
             <h3 class="cyber-heading">DATA_PORT</h3>
             <ul>
-              <li><a href="#" class="cyber-link">gogohappy@zontec.club</a></li>
+              <li><a href="#" class="cyber-link">gogohappy@gogohappy.shop</a></li>
             </ul>
           </div>
           <div class="footer-column cyber-panel">

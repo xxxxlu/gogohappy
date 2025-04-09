@@ -16,7 +16,7 @@
           <div class="info-item">
             <div class="info">
               <h3>DATA_STREAM</h3>
-              <p>gogohappy@aontec.club</p>
+              <p>gogohappy@gogohappy.shop</p>
               <p>Response time: < 24 cycle units</p>
             </div>
           </div>

@@ -59,7 +59,7 @@
                  :key="index" 
                  v-if="products.length > index">
               <div class="featured-hologram">
-                <img :src="products[index].image" :alt="products[index].name" @error="handleImageError">
+                <img :src="products[index].image" :alt="products[index].name">
                 <div class="hologram-overlay"></div>
                 <div class="card-corner tl"></div>
                 <div class="card-corner tr"></div>
@@ -174,9 +174,6 @@ export default {
   methods: {
     formatPrice(price) {
       return (price / 100).toFixed(2);
-    },
-    handleImageError(e) {
-      e.target.src = 'https://via.placeholder.com/300x200?text=Image+Not+Found';
     },
     showPulseEffect() {
       this.isPulsing = true;
