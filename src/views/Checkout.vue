@@ -173,7 +173,6 @@
                 <img
                   :src="item.image"
                   :alt="item.name"
-                  @error="handleImageError"
                 />
                 <div class="image-frame"></div>
               </div>
@@ -262,10 +261,6 @@ export default {
       // For now, just redirect to success page
       this.$router.push('/checkout-success')
     },
-    handleImageError(e) {
-      // Fallback image if product image is not found
-      e.target.src = 'https://ext.same-assets.com/3844190759/814572404.jpeg'
-    }
   },
   created() {
     // Redirect if cart is empty

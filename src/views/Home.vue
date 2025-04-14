@@ -34,7 +34,7 @@
         <div class="cyber-featured-cards">
           <div class="featured-card featured-card-main">
             <div class="featured-hologram">
-              <img src="https://cdn.pixabay.com/photo/2020/10/03/05/26/technology-5623438_1280.jpg" alt="Tech Future" @error="handleImageError">
+              <img src="https://cdn.pixabay.com/photo/2020/10/03/05/26/technology-5623438_1280.jpg" alt="Tech Future">
               <div class="hologram-overlay"></div>
               <div class="card-corner tl"></div>
               <div class="card-corner tr"></div>

@@ -18,7 +18,6 @@
               <img
                 :src="product.image"
                 :alt="product.name"
-                @error="handleImageError"
               />
               <div class="cyber-corner tl"></div>
               <div class="cyber-corner tr"></div>
@@ -200,10 +199,6 @@ export default {
         this.$store.commit('addToCart', this.product)
       }
       this.$router.push('/cart')
-    },
-    handleImageError(e) {
-      // Fallback image if product image is not found
-      e.target.src = 'https://ext.same-assets.com/3844190759/814572404.jpeg'
     }
   }
 }

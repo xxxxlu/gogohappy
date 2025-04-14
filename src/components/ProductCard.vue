@@ -8,7 +8,6 @@
         <img
           :src="product.image"
           :alt="product.name"
-          @error="handleImageError"
         />
         <div class="image-glitch"></div>
       </div>
@@ -81,10 +80,6 @@ export default {
     },
     addToCart() {
       this.$store.commit('addToCart', this.product)
-    },
-    handleImageError(e) {
-      // Fallback image if product image is not found
-      e.target.src = 'https://ext.same-assets.com/3844190759/814572404.jpeg'
     }
   }
 }

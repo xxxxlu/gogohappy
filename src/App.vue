@@ -78,7 +78,7 @@
         <div class="copyright cyber-copyright">
           <div class="scanner-line"></div>
           <p>
-            Copyright <span class="cyber-year">2025</span> | Powered by Data Network Solutions (SMC-Private) Limited
+            Copyright ©  <span class="cyber-year">2025</span> GOGOHAPPY Store. Powered by Data Tech Solutions (SMC-Private) Limited
           </p>
         </div>
       </div>

@@ -20,29 +20,6 @@
               <p>Response time: < 24 cycle units</p>
             </div>
           </div>
-
-          <div class="info-item">
-            <div class="info">
-              <h3>PHYSICAL_COORDINATES</h3>
-              <p>Symbios.pk Central Hub</p>
-              <p>Karachi Sector, Pakistan Grid</p>
-            </div>
-          </div>
-
-          <div class="social-media">
-            <h3>NETWORK_NODES</h3>
-            <div class="social-icons">
-              <a href="#" class="social-icon">
-                <img src="https://ext.same-assets.com/3844190759/4083373414.png" alt="Facebook" />
-              </a>
-              <a href="#" class="social-icon">
-                <img src="https://ext.same-assets.com/3844190759/4083373414.png" alt="Twitter" />
-              </a>
-              <a href="#" class="social-icon">
-                <img src="https://ext.same-assets.com/3844190759/4083373414.png" alt="Instagram" />
-              </a>
-            </div>
-          </div>
         </div>
 
         <div class="contact-form cyber-panel">

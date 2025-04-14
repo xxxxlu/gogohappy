@@ -17,7 +17,6 @@
                 <img
                   :src="item.image"
                   :alt="item.name"
-                  @error="handleImageError"
                 />
                 <div class="image-glitch"></div>
                 <div class="cyber-corner tl"></div>
@@ -166,10 +165,6 @@ export default {
     },
     proceedToCheckout() {
       this.$router.push('/checkout')
-    },
-    handleImageError(e) {
-      // Fallback image if product image is not found
-      e.target.src = 'https://ext.same-assets.com/3844190759/814572404.jpeg'
     }
   }
 }
